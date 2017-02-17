@@ -8,6 +8,7 @@
        }
     </style>
   </head>
+<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
   <body>
     <h3>Shadow.Me</h3>
     <div id="map"></div>
@@ -33,23 +34,11 @@
           position: uluru1,
           map: map
         });
-      }
-SC.initialize({
-  client_id: 'YOUR_CLIENT_ID',
-  redirect_uri: 'http://example.com/callback'
-});
-
-// initiate auth popup
-SC.connect().then(function() {
-  return SC.get('/me');
-}).then(function(me) {
-  alert('Hello, ' + me.username);
-});
+      };
     </script>
-    <script async defer
+<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC2DfIaIa3nOB-MJP15SldIQPwUjT6otE&callback=initMap">
     </script>
-<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-
+<script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
