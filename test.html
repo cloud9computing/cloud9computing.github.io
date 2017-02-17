@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>VOME Around Here</h3>
+    <div id="map"></div>
+    <script>
+	window.onload = function() {
+	  var startPos;
+	  var geoSuccess = function(position) {
+	    startPos = position;
+	    var lati = startPos.coords.latitude;
+	    var long = startPos.coords.longitude;
+	    var uluru = {lat: lati, lng: long};
+	    initMap(uluru);
+	  };
+	  navigator.geolocation.getCurrentPosition(geoSuccess);
+	};
+      function initMap(uluru1) {
+        var uluru = {lat: 12.937070, lng: 77.626436};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 20,
+          center: uluru1
+        });
+        var marker = new google.maps.Marker({
+          position: uluru1,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC2DfIaIa3nOB-MJP15SldIQPwUjT6otE&callback=initMap">
+    </script>
+  </body>
+</html>
