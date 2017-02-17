@@ -9,7 +9,7 @@
     </style>
   </head>
   <body>
-    <h3>VOME Around Here</h3>
+    <h3>Shadow.Me</h3>
     <div id="map"></div>
     <script>
 	window.onload = function() {
@@ -34,9 +34,22 @@
           map: map
         });
       }
+SC.initialize({
+  client_id: 'YOUR_CLIENT_ID',
+  redirect_uri: 'http://example.com/callback'
+});
+
+// initiate auth popup
+SC.connect().then(function() {
+  return SC.get('/me');
+}).then(function(me) {
+  alert('Hello, ' + me.username);
+});
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC2DfIaIa3nOB-MJP15SldIQPwUjT6otE&callback=initMap">
     </script>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+
   </body>
 </html>
